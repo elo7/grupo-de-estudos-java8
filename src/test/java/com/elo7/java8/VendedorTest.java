@@ -14,4 +14,10 @@ public class VendedorTest {
 		assertEquals(Arrays.asList(new Produto()), vendedor.produtos());
 	}
 
+	@Test
+	public void bla() {
+		Vendedor vendedor = new Vendedor();
+		assertEquals(0, 0);
+	}
+
 }

@@ -7,4 +7,8 @@ public class Produto {
 		return true;
 	}
 
+	public Object getNome() {
+		return "bla";
+	}
+
 }
