@@ -20,4 +20,11 @@ public class ProdutoTest {
 		assertEquals(nomeDoProduto, produto.getNome());
 	}
 
+	@Test
+	public void precoDoProduto() {
+		int preco = 10;
+		Produto produto = new Produto("peao");
+		assertEquals(preco, produto.getPreco());
+	}
+
 }

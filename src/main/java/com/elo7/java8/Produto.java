@@ -41,4 +41,9 @@ public class Produto {
 		}
 		return true;
 	}
+
+	public Object getPreco() {
+		return 10;
+	}
+
 }
