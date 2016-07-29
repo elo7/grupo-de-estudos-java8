@@ -1,16 +1,17 @@
 package com.elo7.java8;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Vendedor {
+	ArrayList<Produto> listaProdutos = new ArrayList<>();
 
 	public List<Produto> produtos() {
-		return Arrays.asList(new Produto("Bola"));
+		return listaProdutos;
 	}
 
 	public void adicionaProduto(Produto produto) {
-		// TODO Auto-generated method stub
+		listaProdutos.add(produto);
 	}
 
 }

@@ -11,6 +11,7 @@ public class VendedorTest {
 	@Test
 	public void deveRetornarProdutos() throws Exception {
 		Vendedor vendedor = new Vendedor();
+		vendedor.adicionaProduto(new Produto("Bola"));
 		assertEquals(Arrays.asList(new Produto("Bola")), vendedor.produtos());
 	}
 
@@ -19,6 +20,14 @@ public class VendedorTest {
 		Vendedor vendedor = new Vendedor();
 		vendedor.adicionaProduto(new Produto("Boneca"));
 		assertEquals(1, vendedor.produtos().size());
+	}
+
+	@Test
+	public void umaLojaPodeIncluirDoisProdutos() {
+		Vendedor vendedor = new Vendedor();
+		vendedor.adicionaProduto(new Produto("Boneca"));
+		vendedor.adicionaProduto(new Produto("Bola"));
+		assertEquals(2, vendedor.produtos().size());
 	}
 
 }
