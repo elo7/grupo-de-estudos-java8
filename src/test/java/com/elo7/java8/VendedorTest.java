@@ -15,9 +15,10 @@ public class VendedorTest {
 	}
 
 	@Test
-	public void bla() {
+	public void umaLojaPodeIncluirUmNovoProduto() {
 		Vendedor vendedor = new Vendedor();
-		assertEquals(0, 0);
+		vendedor.adicionaProduto(new Produto("Boneca"));
+		assertEquals(1, vendedor.produtos().size());
 	}
 
 }

@@ -9,4 +9,8 @@ public class Vendedor {
 		return Arrays.asList(new Produto("Bola"));
 	}
 
+	public void adicionaProduto(Produto produto) {
+		// TODO Auto-generated method stub
+	}
+
 }
