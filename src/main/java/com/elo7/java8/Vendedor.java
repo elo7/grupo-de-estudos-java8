@@ -1,12 +1,12 @@
 package com.elo7.java8;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Vendedor {
-	ArrayList<Produto> listaProdutos = new ArrayList<>();
+	Set<Produto> listaProdutos = new HashSet<>();
 
-	public List<Produto> produtos() {
+	public Set<Produto> produtos() {
 		return listaProdutos;
 	}
 

@@ -11,8 +11,9 @@ public class VendedorTest {
 	@Test
 	public void deveRetornarProdutos() throws Exception {
 		Vendedor vendedor = new Vendedor();
-		vendedor.adicionaProduto(new Produto("Bola"));
-		assertEquals(Arrays.asList(new Produto("Bola")), vendedor.produtos());
+		Produto produto = new Produto("Bola");
+		vendedor.adicionaProduto(produto);
+		assertEquals(Arrays.asList(produto), vendedor.produtos());
 	}
 
 	@Test
@@ -28,6 +29,14 @@ public class VendedorTest {
 		vendedor.adicionaProduto(new Produto("Boneca"));
 		vendedor.adicionaProduto(new Produto("Bola"));
 		assertEquals(2, vendedor.produtos().size());
+	}
+
+	@Test
+	public void umaLojaNaoPodeTerProdutosRepetidos() {
+		Vendedor vendedor = new Vendedor();
+		vendedor.adicionaProduto(new Produto("Boneca"));
+		vendedor.adicionaProduto(new Produto("Boneca"));
+		assertEquals(1, vendedor.produtos().size());
 	}
 
 }
