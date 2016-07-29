@@ -8,8 +8,14 @@ public class ProdutoTest {
 
 	@Test
 	public void nomeDoProduto() {
-		Produto produto = new Produto();
-		assertEquals("bla", produto.getNome());
+		Produto produto = new Produto("Boneca");
+		assertEquals("Boneca", produto.getNome());
+	}
+
+	@Test
+	public void verificandoNomedoProduto() {
+		Produto produto = new Produto("Bola");
+		assertEquals("Bola", produto.getNome());
 	}
 
 }

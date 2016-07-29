@@ -11,7 +11,7 @@ public class VendedorTest {
 	@Test
 	public void deveRetornarProdutos() throws Exception {
 		Vendedor vendedor = new Vendedor();
-		assertEquals(Arrays.asList(new Produto()), vendedor.produtos());
+		assertEquals(Arrays.asList(new Produto("Bola")), vendedor.produtos());
 	}
 
 	@Test

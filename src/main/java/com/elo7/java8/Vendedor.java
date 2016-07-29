@@ -6,7 +6,7 @@ import java.util.List;
 public class Vendedor {
 
 	public List<Produto> produtos() {
-		return Arrays.asList(new Produto());
+		return Arrays.asList(new Produto("Bola"));
 	}
 
 }
