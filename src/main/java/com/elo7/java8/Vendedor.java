@@ -22,6 +22,11 @@ public class Vendedor {
 	}
 
 	public double getMediaDePrecoDosProdutos() {
-		return 55;
+		double preco = 0;
+		for (Produto produto : listaProdutos) {
+			preco += produto.getPreco();
+		}
+
+		return preco / listaProdutos.size();
 	}
 }

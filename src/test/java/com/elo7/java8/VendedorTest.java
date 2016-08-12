@@ -66,4 +66,15 @@ public class VendedorTest {
 		assertEquals(55.0, media, 0.001);
 	}
 
+	@Test
+	public void calculaAMediaDePrecoDosProdutosDaLojaAposOReajuste() {
+		Vendedor vendedor = new Vendedor();
+		vendedor.adicionaProduto(new Produto("Boneca", 10.0));
+		vendedor.adicionaProduto(new Produto("Bola", 100.0));
+		vendedor.aplicaReajusteParaTodosOsProdutos(10);
+
+		double media = vendedor.getMediaDePrecoDosProdutos();
+		assertEquals(60.50, media, 0.001);
+	}
+
 }
