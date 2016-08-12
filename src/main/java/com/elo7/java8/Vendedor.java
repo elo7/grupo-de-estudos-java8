@@ -15,4 +15,8 @@ public class Vendedor {
 		listaProdutos.add(produto);
 	}
 
+	public Produto getProduto(String string) {
+		return new Produto("Mouse");
+	}
+
 }

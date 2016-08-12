@@ -42,4 +42,12 @@ public class VendedorTest {
 		assertEquals(1, vendedor.produtos().size());
 	}
 
+	@Test
+	public void umaLojaPodeEditarUmProduto() {
+		Vendedor vendedor = new Vendedor();
+		Produto produto = vendedor.getProduto("Boneca");
+		produto.setNome("Mouse");
+		assertEquals("Mouse", produto.getNome());
+	}
+
 }

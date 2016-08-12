@@ -46,4 +46,8 @@ public class Produto {
 		return 10;
 	}
 
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
 }
