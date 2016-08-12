@@ -4,11 +4,13 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class VendedorTest {
 
 	@Test
+	@Ignore
 	public void deveRetornarProdutos() throws Exception {
 		Vendedor vendedor = new Vendedor();
 		Produto produto = new Produto("Bola");
