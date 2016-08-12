@@ -1,11 +1,13 @@
 package com.elo7.java8;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
+import org.hamcrest.Matchers;
 import org.junit.Test;
 
 public class VendedorTest {
@@ -24,7 +26,7 @@ public class VendedorTest {
 	public void umaLojaPodeIncluirUmNovoProduto() {
 		Vendedor vendedor = new Vendedor();
 		vendedor.adicionaProduto(new Produto("Boneca", 10.0));
-		assertEquals(1, vendedor.produtos().size());
+		assertThat(vendedor.produtos(), Matchers.hasSize(1));
 	}
 
 	@Test
@@ -32,7 +34,7 @@ public class VendedorTest {
 		Vendedor vendedor = new Vendedor();
 		vendedor.adicionaProduto(new Produto("Boneca", 10.0));
 		vendedor.adicionaProduto(new Produto("Bola", 10.0));
-		assertEquals(2, vendedor.produtos().size());
+		assertThat(vendedor.produtos(), Matchers.hasSize(2));
 	}
 
 	@Test
@@ -40,7 +42,7 @@ public class VendedorTest {
 		Vendedor vendedor = new Vendedor();
 		vendedor.adicionaProduto(new Produto("Boneca", 10.0));
 		vendedor.adicionaProduto(new Produto("Boneca", 10.0));
-		assertEquals(1, vendedor.produtos().size());
+		assertThat(vendedor.produtos(), Matchers.hasSize(1));
 	}
 
 	@Test
@@ -49,7 +51,7 @@ public class VendedorTest {
 		vendedor.adicionaProduto(new Produto("Boneca", 10.0));
 		vendedor.adicionaProduto(new Produto("Bola", 100.0));
 		vendedor.aplicaReajusteParaTodosOsProdutos(10);
-		
+
 		Iterator<Produto> iterator = vendedor.produtos().iterator();
 		assertEquals( 11.0, iterator.next().getPreco(), 0.001);
 		assertEquals( 110.0, iterator.next().getPreco(), 0.001);
