@@ -8,13 +8,20 @@ import static org.junit.Assert.assertThat;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class VendedorTest {
 
+	private Vendedor vendedor;
+
+	@Before
+	public void inicializaTeste() {
+		vendedor = new Vendedor();
+	}
+
 	@Test
 	public void deveRetornarProdutos() throws Exception {
-		Vendedor vendedor = new Vendedor();
 		Produto produto = new Produto("Bola", 10.0);
 		vendedor.adicionaProduto(produto);
 		Set<Produto> produtos = new HashSet<>();
@@ -24,14 +31,12 @@ public class VendedorTest {
 
 	@Test
 	public void umaLojaPodeIncluirUmNovoProduto() {
-		Vendedor vendedor = new Vendedor();
 		vendedor.adicionaProduto(new Produto("Boneca", 10.0));
 		assertThat(vendedor.produtos(), hasSize(1));
 	}
 
 	@Test
 	public void umaLojaPodeIncluirDoisProdutos() {
-		Vendedor vendedor = new Vendedor();
 		vendedor.adicionaProduto(new Produto("Boneca", 10.0));
 		vendedor.adicionaProduto(new Produto("Bola", 10.0));
 		assertThat(vendedor.produtos(), hasSize(2));
@@ -39,7 +44,6 @@ public class VendedorTest {
 
 	@Test
 	public void umaLojaNaoPodeTerProdutosRepetidos() {
-		Vendedor vendedor = new Vendedor();
 		vendedor.adicionaProduto(new Produto("Boneca", 10.0));
 		vendedor.adicionaProduto(new Produto("Boneca", 10.0));
 		assertThat(vendedor.produtos(), hasSize(1));
@@ -47,7 +51,6 @@ public class VendedorTest {
 
 	@Test
 	public void vendedorPodeReajustarOPrecoDeTodosOsProdutos() {
-		Vendedor vendedor = new Vendedor();
 		vendedor.adicionaProduto(new Produto("Boneca", 10.0));
 		vendedor.adicionaProduto(new Produto("Bola", 100.0));
 		vendedor.aplicaReajusteParaTodosOsProdutos(10);
@@ -59,7 +62,6 @@ public class VendedorTest {
 
 	@Test
 	public void calculaAMediaDePrecoDosProdutosDaLoja() {
-		Vendedor vendedor = new Vendedor();
 		vendedor.adicionaProduto(new Produto("Boneca", 10.0));
 		vendedor.adicionaProduto(new Produto("Bola", 100.0));
 		double media = vendedor.getMediaDePrecoDosProdutos();
@@ -68,7 +70,6 @@ public class VendedorTest {
 
 	@Test
 	public void calculaAMediaDePrecoDosProdutosDaLojaAposOReajuste() {
-		Vendedor vendedor = new Vendedor();
 		vendedor.adicionaProduto(new Produto("Boneca", 10.0));
 		vendedor.adicionaProduto(new Produto("Bola", 100.0));
 		vendedor.aplicaReajusteParaTodosOsProdutos(10);
