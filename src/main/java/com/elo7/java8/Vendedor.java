@@ -14,9 +14,4 @@ public class Vendedor {
 	public void adicionaProduto(Produto produto) {
 		listaProdutos.add(produto);
 	}
-
-	public Produto getProduto(String string) {
-		return new Produto("Mouse");
-	}
-
 }

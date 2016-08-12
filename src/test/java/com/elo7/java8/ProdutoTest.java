@@ -22,9 +22,22 @@ public class ProdutoTest {
 
 	@Test
 	public void precoDoProduto() {
-		int preco = 10;
-		Produto produto = new Produto("peao");
-		assertEquals(preco, produto.getPreco());
+		Produto produto = new Produto("peao", 10);
+		assertEquals(10, produto.getPreco(), 0.001);
+	}
+
+	@Test
+	public void podeAlterarNomeDoProduto() {
+		Produto produto = new Produto("Boneca");
+		produto.setNome("Mouse");
+		assertEquals("Mouse", produto.getNome());
+	}
+
+	@Test
+	public void reajustaPrecoDoProduto() {
+		Produto produto = new Produto("Macbook", 1000.10);
+		produto.aplicaReajuste(10);
+		assertEquals(1100.11, produto.getPreco(), 0.001);
 	}
 
 }

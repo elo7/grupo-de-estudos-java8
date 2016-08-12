@@ -3,9 +3,15 @@ package com.elo7.java8;
 public class Produto {
 
 	private String nome;
+	private double preco;
 
 	public Produto(String nome) {
 		this.nome = nome;
+	}
+
+	public Produto(String nome, double preco) {
+		this.nome = nome;
+		this.preco = preco;
 	}
 
 	public String getNome() {
@@ -42,12 +48,16 @@ public class Produto {
 		return true;
 	}
 
-	public Object getPreco() {
-		return 10;
+	public double getPreco() {
+		return preco;
 	}
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public void aplicaReajuste(double porcentagem) {
+		this.preco += this.preco * porcentagem / 100;
 	}
 
 }
