@@ -9,14 +9,14 @@ public class ProdutoTest {
 	@Test
 	public void nomeDoProduto() {
 		String nomeDoProduto = "Boneca";
-		Produto produto = new Produto(nomeDoProduto);
+		Produto produto = new Produto(nomeDoProduto, 10.0);
 		assertEquals(nomeDoProduto, produto.getNome());
 	}
 
 	@Test
 	public void verificandoNomedoProduto() {
 		String nomeDoProduto = "Bola";
-		Produto produto = new Produto(nomeDoProduto);
+		Produto produto = new Produto(nomeDoProduto, 10.0);
 		assertEquals(nomeDoProduto, produto.getNome());
 	}
 
@@ -28,7 +28,7 @@ public class ProdutoTest {
 
 	@Test
 	public void podeAlterarNomeDoProduto() {
-		Produto produto = new Produto("Boneca");
+		Produto produto = new Produto("Boneca", 10.0);
 		produto.setNome("Mouse");
 		assertEquals("Mouse", produto.getNome());
 	}
