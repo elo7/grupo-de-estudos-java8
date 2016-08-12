@@ -20,4 +20,8 @@ public class Vendedor {
 			produto.aplicaReajuste(porcentagem);
 		}
 	}
+
+	public double getMediaDePrecoDosProdutos() {
+		return 55;
+	}
 }

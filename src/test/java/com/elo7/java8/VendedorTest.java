@@ -8,7 +8,6 @@ import static org.junit.Assert.assertThat;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.hamcrest.Matchers;
 import org.junit.Test;
 
 public class VendedorTest {
@@ -27,7 +26,7 @@ public class VendedorTest {
 	public void umaLojaPodeIncluirUmNovoProduto() {
 		Vendedor vendedor = new Vendedor();
 		vendedor.adicionaProduto(new Produto("Boneca", 10.0));
-		assertThat(vendedor.produtos(), Matchers.hasSize(1));
+		assertThat(vendedor.produtos(), hasSize(1));
 	}
 
 	@Test
@@ -56,6 +55,15 @@ public class VendedorTest {
 		assertThat(vendedor.produtos(), contains(
 					new Produto("Boneca", 11),
 					new Produto("Bola", 110)));
+	}
+
+	@Test
+	public void calculaAMediaDePrecoDosProdutosDaLoja() {
+		Vendedor vendedor = new Vendedor();
+		vendedor.adicionaProduto(new Produto("Boneca", 10.0));
+		vendedor.adicionaProduto(new Produto("Bola", 100.0));
+		double media = vendedor.getMediaDePrecoDosProdutos();
+		assertEquals(55.0, media, 0.001);
 	}
 
 }
