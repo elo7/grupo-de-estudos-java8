@@ -1,5 +1,6 @@
 package com.elo7.java8;
 
+import java.util.DoubleSummaryStatistics;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,11 +23,7 @@ public class Vendedor {
 	}
 
 	public double getMediaDePrecoDosProdutos() {
-		double preco = 0;
-		for (Produto produto : listaProdutos) {
-			preco += produto.getPreco();
-		}
-
-		return preco / listaProdutos.size();
+		DoubleSummaryStatistics media = produtos().stream().mapToDouble(produto -> produto.getPreco()).summaryStatistics();
+		return media.getAverage();
 	}
 }
