@@ -52,8 +52,9 @@ public class Produto {
 		this.nome = nome;
 	}
 
-	public void aplicaReajuste(double porcentagem) {
+	public Produto aplicaReajuste(double porcentagem) {
 		this.preco += this.preco * porcentagem / 100;
+		return this;
 	}
 
 }

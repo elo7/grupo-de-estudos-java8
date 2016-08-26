@@ -17,9 +17,7 @@ public class Vendedor {
 	}
 
 	public void aplicaReajusteParaTodosOsProdutos(double porcentagem) {
-		for (Produto produto : listaProdutos) {
-			produto.aplicaReajuste(porcentagem);
-		}
+		produtos().stream().map(produto -> produto.aplicaReajuste(porcentagem));
 	}
 
 	public double getMediaDePrecoDosProdutos() {
