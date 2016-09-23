@@ -75,7 +75,7 @@ public class VendedorTest {
 		vendedor.aplicaReajusteParaTodosOsProdutos(10);
 
 		double media = vendedor.getMediaDePrecoDosProdutos();
-		assertEquals(55.00, media, 0.001);
+		assertEquals(60.50, media, 0.001);
 	}
 
 }

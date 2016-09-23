@@ -3,6 +3,7 @@ package com.elo7.java8;
 import java.util.DoubleSummaryStatistics;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Vendedor {
 
@@ -17,7 +18,7 @@ public class Vendedor {
 	}
 
 	public void aplicaReajusteParaTodosOsProdutos(double porcentagem) {
-		produtos().stream().map(produto -> produto.aplicaReajuste(porcentagem));
+		listaProdutos = produtos().stream().map(produto -> produto.aplicaReajuste(porcentagem)).collect(Collectors.toSet());
 	}
 
 	public double getMediaDePrecoDosProdutos() {
