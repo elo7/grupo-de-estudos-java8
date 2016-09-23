@@ -27,6 +27,12 @@ public class Vendedor {
 	}
 
 	public Produto getProdutoDeMenorPreco() {
-		return new Produto("Urso", 10);
+		Produto menorPreco = null;
+		for (Produto produto : listaProdutos) {
+			if(menorPreco == null || produto.getPreco() < menorPreco.getPreco()) {
+				menorPreco = produto;
+			}
+		}
+		return menorPreco;
 	}
 }

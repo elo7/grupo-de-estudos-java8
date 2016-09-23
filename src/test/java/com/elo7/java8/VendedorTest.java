@@ -79,10 +79,15 @@ public class VendedorTest {
 	}
 
 	@Test
-	public void retornaOProdutoComMenorPreco() {
+	public void retornaOProdutoComMenorPrecoQuandoALojaSoTemUmUnicoProduto() {
+		vendedor.adicionaProduto(new Produto("Lapis", 1.0));
+		assertEquals(new Produto("Lapis", 1.0), vendedor.getProdutoDeMenorPreco());
+	}
+
+	@Test
+	public void retornaOProdutoComMenorPrecoQuandoALojaTemMaisDeUmProduto() {
 		vendedor.adicionaProduto(new Produto("Urso", 10.0));
 		vendedor.adicionaProduto(new Produto("Casinha", 100.0));
-
 		assertEquals(new Produto("Urso", 10.0), vendedor.getProdutoDeMenorPreco());
 	}
 
