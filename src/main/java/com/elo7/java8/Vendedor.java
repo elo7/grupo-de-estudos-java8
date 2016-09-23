@@ -35,4 +35,14 @@ public class Vendedor {
 		}
 		return menorPreco;
 	}
+
+	public Produto getProdutoDeMaiorPreco() {
+		Produto maiorPreco = null;
+		for (Produto produto : listaProdutos) {
+			if(maiorPreco == null || produto.getPreco() > maiorPreco.getPreco()) {
+				maiorPreco = produto;
+			}
+		}
+		return maiorPreco;
+	}
 }
