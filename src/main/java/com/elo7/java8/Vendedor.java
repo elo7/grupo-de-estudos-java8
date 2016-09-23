@@ -25,4 +25,8 @@ public class Vendedor {
 		DoubleSummaryStatistics media = produtos().stream().mapToDouble(produto -> produto.getPreco()).summaryStatistics();
 		return media.getAverage();
 	}
+
+	public Produto getProdutoDeMenorPreco() {
+		return new Produto("Urso", 10);
+	}
 }

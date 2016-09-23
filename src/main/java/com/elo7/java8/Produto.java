@@ -14,6 +14,23 @@ public class Produto {
 		return nome;
 	}
 
+	public double getPreco() {
+		return preco;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public Produto aplicaReajuste(double porcentagem) {
+		this.preco += this.preco * porcentagem / 100;
+		return this;
+	}
+
+	@Override
+	public String toString() {
+		return "Produto [nome=" + nome + ", preco=" + preco + "]";
+	}
 
 	@Override
 	public int hashCode() {
@@ -49,19 +66,6 @@ public class Produto {
 			return false;
 		}
 		return true;
-	}
-
-	public double getPreco() {
-		return preco;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public Produto aplicaReajuste(double porcentagem) {
-		this.preco += this.preco * porcentagem / 100;
-		return this;
 	}
 
 }

@@ -78,4 +78,12 @@ public class VendedorTest {
 		assertEquals(60.50, media, 0.001);
 	}
 
+	@Test
+	public void retornaOProdutoComMenorPreco() {
+		vendedor.adicionaProduto(new Produto("Urso", 10.0));
+		vendedor.adicionaProduto(new Produto("Casinha", 100.0));
+
+		assertEquals(new Produto("Urso", 10.0), vendedor.getProdutoDeMenorPreco());
+	}
+
 }
