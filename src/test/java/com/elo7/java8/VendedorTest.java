@@ -95,7 +95,7 @@ public class VendedorTest {
 	public void retornaOprodutoComMaiorPreco() {
 		vendedor.adicionaProduto(new Produto("Urso", 10.0));
 		vendedor.adicionaProduto(new Produto("Casinha", 100.0));
-		assertEquals(new Produto("Casinha", 100.0), vendedor.getProdutoDeMaiorPreco());
+		assertEquals(new Produto("Casinha", 100.0), vendedor.getProdutoDeMaiorPreco().get());
 	}
 
 }

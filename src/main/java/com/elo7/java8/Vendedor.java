@@ -2,6 +2,7 @@ package com.elo7.java8;
 
 import java.util.DoubleSummaryStatistics;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -36,13 +37,8 @@ public class Vendedor {
 		return menorPreco;
 	}
 
-	public Produto getProdutoDeMaiorPreco() {
-		Produto maiorPreco = null;
-		for (Produto produto : listaProdutos) {
-			if(maiorPreco == null || produto.getPreco() > maiorPreco.getPreco()) {
-				maiorPreco = produto;
-			}
-		}
-		return maiorPreco;
+	public Optional<Produto> getProdutoDeMaiorPreco() {
+		Optional<Produto> maisCaro = listaProdutos.stream().reduce((produto1, produto2) -> produto1.getPreco() > produto2.getPreco() ? produto1 : produto2);
+		return maisCaro;
 	}
 }
