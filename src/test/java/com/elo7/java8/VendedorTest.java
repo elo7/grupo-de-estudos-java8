@@ -3,6 +3,7 @@ package com.elo7.java8;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 
 import java.util.HashSet;
@@ -81,14 +82,14 @@ public class VendedorTest {
 	@Test
 	public void retornaOProdutoComMenorPrecoQuandoALojaSoTemUmUnicoProduto() {
 		vendedor.adicionaProduto(new Produto("Lapis", 1.0));
-		assertEquals(new Produto("Lapis", 1.0), vendedor.getProdutoDeMenorPreco());
+		assertEquals(new Produto("Lapis", 1.0), vendedor.getProdutoDeMenorPreco().get());
 	}
 
 	@Test
 	public void retornaOProdutoComMenorPrecoQuandoALojaTemMaisDeUmProduto() {
 		vendedor.adicionaProduto(new Produto("Urso", 10.0));
 		vendedor.adicionaProduto(new Produto("Casinha", 100.0));
-		assertEquals(new Produto("Urso", 10.0), vendedor.getProdutoDeMenorPreco());
+		assertEquals(new Produto("Urso", 10.0), vendedor.getProdutoDeMenorPreco().get());
 	}
 
 	@Test
@@ -96,6 +97,16 @@ public class VendedorTest {
 		vendedor.adicionaProduto(new Produto("Urso", 10.0));
 		vendedor.adicionaProduto(new Produto("Casinha", 100.0));
 		assertEquals(new Produto("Casinha", 100.0), vendedor.getProdutoDeMaiorPreco().get());
+	}
+
+	@Test
+	public void retornaOProdutoComMenorPrecoEmUmaLojaSemProdutos() {
+		assertFalse(vendedor.getProdutoDeMenorPreco().isPresent());
+	}
+
+	@Test
+	public void retornaOprodutoComMaiorPrecoEmLojaSemProdutos() {
+		assertFalse(vendedor.getProdutoDeMaiorPreco().isPresent());
 	}
 
 }

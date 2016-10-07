@@ -27,14 +27,9 @@ public class Vendedor {
 		return media.getAverage();
 	}
 
-	public Produto getProdutoDeMenorPreco() {
-		Produto menorPreco = null;
-		for (Produto produto : listaProdutos) {
-			if(menorPreco == null || produto.getPreco() < menorPreco.getPreco()) {
-				menorPreco = produto;
-			}
-		}
-		return menorPreco;
+	public Optional <Produto> getProdutoDeMenorPreco() {
+		Optional<Produto> maisBarato = listaProdutos.stream().reduce((produto1, produto2) -> produto1.getPreco() < produto2.getPreco() ? produto1 : produto2);
+		return maisBarato;
 	}
 
 	public Optional<Produto> getProdutoDeMaiorPreco() {
