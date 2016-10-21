@@ -10,6 +10,12 @@ public class Vendedor {
 
 	Set<Produto> listaProdutos = new HashSet<>();
 
+	private final String nome;
+
+	public Vendedor(String nome) {
+		this.nome = nome;
+	}
+
 	public Set<Produto> produtos() {
 		return listaProdutos;
 	}
@@ -35,5 +41,9 @@ public class Vendedor {
 	public Optional<Produto> getProdutoDeMaiorPreco() {
 		Optional<Produto> maisCaro = listaProdutos.stream().reduce((produto1, produto2) -> produto1.getPreco() > produto2.getPreco() ? produto1 : produto2);
 		return maisCaro;
+	}
+
+	public String getName() {
+		return this.nome;
 	}
 }

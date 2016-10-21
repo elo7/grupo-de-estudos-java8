@@ -18,7 +18,7 @@ public class VendedorTest {
 
 	@Before
 	public void inicializaTeste() {
-		vendedor = new Vendedor();
+		vendedor = new Vendedor("Celesteman");
 	}
 
 	@Test
