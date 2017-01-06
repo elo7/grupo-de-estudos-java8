@@ -140,4 +140,17 @@ public class VendedorTest {
 		assertFalse(produtoRemovido.isPresent());
 	}
 
+	@Test
+	public void calculaValorTotalDoEstoque() {
+		Produto boneca = new Produto("Boneca", 10.0);
+		Produto bola = new Produto("Bola", 10.5);
+
+		vendedor.adicionaProduto(boneca);
+		vendedor.adicionaProduto(bola);
+
+		double valorTotalDoEstoque = vendedor.valorTotalDoEstoque();
+
+		assertEquals(valorTotalDoEstoque, 20.50, 0.1);
+	}
+
 }

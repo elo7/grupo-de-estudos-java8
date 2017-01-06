@@ -56,4 +56,8 @@ public class Vendedor {
 		return produtoBuscado;
 	}
 
+	public double valorTotalDoEstoque() {
+		return listaProdutos.stream().mapToDouble(produto -> produto.getPreco()).sum();
+	}
+
 }
