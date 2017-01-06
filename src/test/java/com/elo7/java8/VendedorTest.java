@@ -5,8 +5,10 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 import org.junit.Before;
@@ -57,8 +59,8 @@ public class VendedorTest {
 		vendedor.aplicaReajusteParaTodosOsProdutos(10);
 
 		assertThat(vendedor.produtos(), contains(
-					new Produto("Boneca", 11),
-					new Produto("Bola", 110)));
+				new Produto("Boneca", 11),
+				new Produto("Bola", 110)));
 	}
 
 	@Test
@@ -107,6 +109,35 @@ public class VendedorTest {
 	@Test
 	public void retornaOprodutoComMaiorPrecoEmLojaSemProdutos() {
 		assertFalse(vendedor.getProdutoDeMaiorPreco().isPresent());
+	}
+
+	@Test
+	public void vendedorPodeBuscarProduto() {
+		Produto boneca = new Produto("Boneca", 10.0);
+		Produto bola = new Produto("Bola", 10.5);
+
+		vendedor.adicionaProduto(boneca);
+		vendedor.adicionaProduto(bola);
+
+		Optional<Produto> produtoBuscado = vendedor.buscaProduto(bola);
+
+		assertTrue(produtoBuscado.isPresent());
+		assertEquals(produtoBuscado.get(), bola);
+
+	}
+
+	@Test
+	public void removeUmProduto() {
+		Produto boneca = new Produto("Boneca", 10.0);
+		Produto bola = new Produto("Bola", 10.5);
+
+		vendedor.adicionaProduto(boneca);
+		vendedor.adicionaProduto(bola);
+		vendedor.removerProduto(boneca);
+
+		Optional<Produto> produtoRemovido = vendedor.buscaProduto(boneca);
+
+		assertFalse(produtoRemovido.isPresent());
 	}
 
 }

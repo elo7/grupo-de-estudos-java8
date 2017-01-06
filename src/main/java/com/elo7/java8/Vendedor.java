@@ -46,4 +46,14 @@ public class Vendedor {
 	public String getName() {
 		return this.nome;
 	}
+
+	public void removerProduto(Produto produto) {
+		listaProdutos.remove(produto);
+	}
+
+	public Optional<Produto> buscaProduto(Produto produto) {
+		Optional<Produto> produtoBuscado = listaProdutos.stream().filter(prod -> prod.equals(produto)).findFirst();
+		return produtoBuscado;
+	}
+
 }
