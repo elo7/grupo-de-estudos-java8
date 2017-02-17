@@ -1,14 +1,10 @@
 package com.elo7.board_game.games;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.elo7.board_game.user.User;
 
 public class SkullKing implements Games {
 
-	private User user;
-	private int score;
+	private final Ranking ranking = new Ranking();
 
 	public int getId() {
 		// TODO Auto-generated method stub
@@ -35,25 +31,12 @@ public class SkullKing implements Games {
 		return null;
 	}
 
-	public void setScore(User user, int score) {
-		this.user = user;
-		this.score =  score;
+	public void setUserScore(User user, int score) {
+		ranking.addUserScore(user, score);
 	}
 
-	public User getUser() {
-		return this.user;
-	}
-
-	public int getScore() {
-		return this.score;
-	}
-
-	public Map<User, Integer> getGameUsersScored() {
-		Map<User,Integer> map = new HashMap<User, Integer>();
-
-		map.put(this.getUser(), this.getScore());
-
-		return map;
+	public Ranking getRanking() {
+		return ranking;
 	}
 
 }

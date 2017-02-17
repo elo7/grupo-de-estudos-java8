@@ -6,8 +6,13 @@ import com.elo7.board_game.user.User;
 
 public class Ranking {
 
-	public Map<User, Integer> getUsersPositionOfGame(Games game) {
-		return game.getGameUsersScored();
+	private Map<User, Integer> usersScoreList;
+
+	public Map<User, Integer> getUsersPositionOfGame() {
+		return usersScoreList;
 	}
 
+	public void addUserScore(User user, int score) {
+		usersScoreList.put(user, score);
+	}
 }
