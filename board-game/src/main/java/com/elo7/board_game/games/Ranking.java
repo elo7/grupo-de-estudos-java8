@@ -1,27 +1,20 @@
 package com.elo7.board_game.games;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collector;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.elo7.board_game.user.User;
 
 public class Ranking {
 
-	private final List<RankingPosition> usersScoreList = new ArrayList<RankingPosition>();
+	private final List<RankingPosition> usersScoreList = new ArrayList<>();
 
 	public List<RankingPosition> getUsersPositionOfGame() {
-
-		//numbers = numbers.stream().sorted((num1, num2) -> num2 - num1).collect(Collectors.toList());
-		return usersScoreList.stream().sorted((pos1, pos2) -> {
-			if (pos2.getScore() - pos1.getScore() > 0) {
-				return pos2;
-			} else {
-				return pos1;
-			}
-		}).collect(Collectors.toList());
+		return usersScoreList.stream()
+				.sorted((num1, num2) -> num2.getScore() - num1.getScore())
+				.collect(Collectors.toList());
 	}
 
 	public void addUserScore(User user, int score) {
@@ -46,6 +39,14 @@ public class Ranking {
 			return score;
 		}
 
+	}
+
+	public Optional<RankingPosition> getFirstPosition() {
+		List<RankingPosition> usersPositionOfGame = this.getUsersPositionOfGame();
+		if (!usersPositionOfGame.isEmpty()) {
+			return Optional.of(usersPositionOfGame.get(0));
+		}
+		return Optional.empty();
 	}
 
 }

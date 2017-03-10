@@ -28,4 +28,21 @@ public class RankingTest {
 		assertEquals(10, usersPositionOfGame.iterator().next().getScore());
 
 	}
+
+	@Test
+	public void whoIsTheFirstOne() {
+		User userOne = new User("Cael");
+		User userTwo = new User("Celestino");
+		User userThree = new User("Aline NY");
+
+		SkullKing skullKing = new SkullKing();
+
+		skullKing.setUserScore(userOne, 5);
+		skullKing.setUserScore(userTwo, 10);
+		skullKing.setUserScore(userThree, 1);
+
+		assertEquals(skullKing.getRanking().getFirstPosition().get().getUser(), userTwo);
+
+	}
+
 }
