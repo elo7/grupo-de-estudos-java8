@@ -49,4 +49,17 @@ public class Ranking {
 		return Optional.empty();
 	}
 
+	public Optional<RankingPosition> getLastPosition() {
+		List<RankingPosition> usersPositionOfGame = this.getUsersPositionOfGame();
+
+		if (!usersPositionOfGame.isEmpty()) {
+			int lastPosition = usersPositionOfGame.size() - 1;
+
+			return Optional.of(usersPositionOfGame.get(lastPosition));
+		}
+
+		return Optional.empty();
+
+	}
+
 }

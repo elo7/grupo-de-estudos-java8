@@ -30,7 +30,7 @@ public class RankingTest {
 	}
 
 	@Test
-	public void whoIsTheFirstOne() {
+	public void shouldReturnFirstPosition() {
 		User userOne = new User("Cael");
 		User userTwo = new User("Celestino");
 		User userThree = new User("Aline NY");
@@ -43,6 +43,21 @@ public class RankingTest {
 
 		assertEquals(skullKing.getRanking().getFirstPosition().get().getUser(), userTwo);
 
+	}
+
+	@Test
+	public void shouldReturnLastPosition() {
+		User userOne = new User("Cael");
+		User userTwo = new User("Celestino");
+		User userThree = new User("Aline NY");
+
+		SkullKing skullKing = new SkullKing();
+
+		skullKing.setUserScore(userOne, 5);
+		skullKing.setUserScore(userTwo, 10);
+		skullKing.setUserScore(userThree, 1);
+
+		assertEquals(skullKing.getRanking().getLastPosition().get().getUser(), userThree);
 	}
 
 }
